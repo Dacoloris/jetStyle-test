@@ -1,0 +1,6 @@
+.gradle
+.idea/
+!.idea/icon*.png
+*.iml
+build/
+.DS_store
