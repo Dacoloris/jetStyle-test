@@ -1,0 +1,57 @@
+{
+  "consumes": [
+    "application/zip"
+  ],
+  "produces": [
+    "application/json"
+  ],
+  "schemes": [
+    "http"
+  ],
+  "swagger": "2.0",
+  "info": {
+    "description": "This is a simple converter from html archive to pdf.",
+    "title": "Html To Pdf API",
+    "contact": {
+      "url": "https://github.com/Dacoloris"
+    },
+    "version": "1.0.0"
+  },
+  "host": "localhost:8080",
+  "basePath": "/",
+  "paths": {
+    "/ping": {
+      "get": {
+        "description": "Returns pong if the server is running",
+        "produces": [
+          "application/json"
+        ],
+        "tags": [
+          "html_to_pdf"
+        ],
+        "operationId": "ping"
+      }
+    },
+    "/upload": {
+      "post": {
+        "description": "Converts html archive to pdf",
+        "produces": [
+          "application/pdf"
+        ],
+        "tags": [
+          "html_to_pdf"
+        ],
+        "operationId": "HTMLToPDF",
+        "parameters": [
+          {
+            "type": "application/zip",
+            "description": "zip archive with html",
+            "name": "zip-archive",
+            "in": "body",
+            "required": true
+          }
+        ]
+      }
+    }
+  }
+}

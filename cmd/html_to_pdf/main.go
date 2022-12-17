@@ -1,3 +1,20 @@
+// Html To Pdf API
+//
+// This is a simple converter from html archive to pdf.
+//
+//		Schemes: http
+//	 Host: localhost:8080
+//		BasePath: /
+//		Version: 1.0.0
+//		Contact: https://github.com/Dacoloris
+//
+//		Consumes:
+//		- application/zip
+//
+//		Produces:
+//		- application/json
+//
+// swagger:meta
 package main
 
 import (

@@ -14,6 +14,26 @@ import (
 	"go.uber.org/zap"
 )
 
+// swagger:operation POST /upload html_to_pdf HTMLToPDF
+// Converts html archive to pdf
+// ---
+// produces:
+// - application/pdf
+// parameters:
+//   - name: zip-archive
+//     in: body
+//     description: zip archive with html
+//     required: true
+//     type: application/zip
+//
+// responses:
+//
+//	'200':
+//	    description: Successful operation
+//	'400':
+//	    description: Invalid request
+//	'500':
+//	    description: Internal server error
 func (h *Handler) ConvertHtmlToPDF(c *gin.Context) {
 	start := time.Now()
 
