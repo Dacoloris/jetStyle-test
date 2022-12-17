@@ -12,7 +12,6 @@ import (
 )
 
 func imagesEmbedder(htmlFileName string, imageFileNames []string) (string, error) {
-
 	content, err := os.ReadFile(htmlFileName)
 	if err != nil {
 		return "", err
@@ -64,7 +63,6 @@ func writeHtmlToFile(filepath, s string) error {
 }
 
 func getAllImgSources(html *string) ([]*string, error) {
-
 	// doc, err := htmlquery.LoadDoc(*html)
 	doc, err := htmlquery.Parse(strings.NewReader((*html)))
 	if err != nil {
@@ -86,14 +84,12 @@ func getAllImgSources(html *string) ([]*string, error) {
 }
 
 func embedImageInHtml(imgsrc *string, imgBase64 *string, html string) string {
-
 	resp := strings.ReplaceAll(html, *imgsrc, *imgBase64)
 
 	return resp
 }
 
 func getReplaceMap(imgSrcs []*string, imagesFileNames []string) (map[*string]*string, error) {
-
 	imgSrcUploadedFileNameMap, err := buildImgSrcUploadedFileNameMap(imgSrcs, imagesFileNames)
 	if err != nil {
 		return nil, err
@@ -119,7 +115,6 @@ func buildImgSrcUploadedFileNameMap(imgSrcs []*string, imageFileNames []string) 
 }
 
 func discoverAssociatedHtmlImgSrc(fName string, imgSrcs []*string) *string {
-
 	// try exact matching
 	respExactMatching := exactMatching(fName, imgSrcs)
 	if respExactMatching != nil {
@@ -141,7 +136,6 @@ func exactMatching(fName string, imgSrcs []*string) *string {
 }
 
 func calcImageBase64String(fName string) *string {
-
 	bytes, err := os.ReadFile(fName)
 	if err != nil {
 		log.Default().Printf("error reading file: %s", fName)
